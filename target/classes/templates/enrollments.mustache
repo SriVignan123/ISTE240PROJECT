@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrollment List</title>
+</head>
+<body>
+<h1>All Enrollments</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Enrollment ID</th>
+        <th>Student ID</th>
+        <th>Course ID</th>
+        <th>Date</th>
+        <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#enrollments}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{studentID}}</td>
+            <td>{{courseID}}</td>
+            <td>{{enrollmentDate}}</td>
+            <td>{{grade}}</td>
+        </tr>
+    {{/enrollments}}
+    </tbody>
+</table>
+<br>
+<a href="/enrollments/add">New Enrollment</a> | <a href="/">Back to Home</a>
+</body>
+</html>
