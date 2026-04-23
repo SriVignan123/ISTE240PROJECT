@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CourseSphere Students</title>
+    <title>CourseSphere Instructors</title>
 </head>
 <body>
-<h1>Student List</h1>
+<h1>Instructor Directory</h1>
 <table border="1">
     <thead>
     <tr>
@@ -14,16 +14,16 @@
     </tr>
     </thead>
     <tbody>
-    {{#students}}
+    {{#instructors}}
         <tr>
             <td>{{id}}</td>
             <td>{{name}}</td>
             <td>{{email}}</td>
         </tr>
-    {{/students}}
+    {{/instructors}}
     </tbody>
 </table>
 <br>
-<a href="/students/add">Add New Student</a> | <a href="/">Back to Home</a>
+<a href="/instructors/add">Add New Instructor</a> | <a href="/">Back to Home</a>
 </body>
 </html>

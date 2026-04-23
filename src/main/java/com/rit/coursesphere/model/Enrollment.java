@@ -1,8 +1,5 @@
 package com.rit.coursesphere.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Enrollment {
     private int id;
     private String StudentID;

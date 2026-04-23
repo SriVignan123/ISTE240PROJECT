@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Student</title>
+    <title>Add Instructor</title>
 </head>
 <body>
-<h2>Register a New Student</h2>
-<form action="/students/add" method="post">
+<h2>Register a New Instructor</h2>
+<form action="/instructors/add" method="post">
     <div>
-        <label>Student ID:</label>
+        <label>Instructor ID:</label>
         <input type="number" name="id" required>
     </div>
     <div>
@@ -19,9 +19,9 @@
         <input type="email" name="email" required>
     </div>
     <br>
-    <button type="submit">Save Student</button>
+    <button type="submit">Save Instructor</button>
 </form>
 <br>
-<a href="/students">Back to List</a>
+<a href="/instructors">Back to List</a> | <a href="/">Back to Home</a>
 </body>
 </html>

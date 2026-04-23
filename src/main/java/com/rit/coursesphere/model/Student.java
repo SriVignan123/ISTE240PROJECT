@@ -1,9 +1,6 @@
 package com.rit.coursesphere.model;
 
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Student {
 
     private Long id;
