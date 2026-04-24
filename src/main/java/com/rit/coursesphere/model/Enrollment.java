@@ -1,49 +1,40 @@
+// Muhammed Safnas - 751008813
+
 package com.rit.coursesphere.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "enrollments")
 public class Enrollment {
-    private int id;
-    private String StudentID;
-    private String CourseID;
-    private String enrollmentDate;
-    private String grade;
 
-    public int getId() {
-        return id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    private Long studentId;
+    private Long courseId;
+    private String enrolledAt;
+    private String progress;
+    private boolean completed;
 
-    public String getStudentID() {
-        return StudentID;
-    }
+    public Enrollment() {}
 
-    public String getGrade() {
-        return grade;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
+    public Long getStudentId() { return studentId; }
+    public void setStudentId(Long studentId) { this.studentId = studentId; }
 
-    public String getEnrollmentDate() {
-        return enrollmentDate;
-    }
+    public Long getCourseId() { return courseId; }
+    public void setCourseId(Long courseId) { this.courseId = courseId; }
 
-    public void setEnrollmentDate(String enrollmentDate) {
-        this.enrollmentDate = enrollmentDate;
-    }
+    public String getEnrolledAt() { return enrolledAt; }
+    public void setEnrolledAt(String enrolledAt) { this.enrolledAt = enrolledAt; }
 
-    public String getCourseID() {
-        return CourseID;
-    }
+    public String getProgress() { return progress; }
+    public void setProgress(String progress) { this.progress = progress; }
 
-    public void setCourseID(String courseID) {
-        CourseID = courseID;
-    }
-
-    public void setStudentID(String studentID) {
-        StudentID = studentID;
-    }
+    public boolean isCompleted() { return completed; }
+    public void setCompleted(boolean completed) { this.completed = completed; }
 }

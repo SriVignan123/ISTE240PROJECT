@@ -1,34 +1,51 @@
+// Muhammed Safnas - 751008813
+
 package com.rit.coursesphere.controller;
 
 import com.rit.coursesphere.model.Course;
-import com.rit.coursesphere.service.CourseSphereService;
+import com.rit.coursesphere.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Optional;
 
-@Controller
+@RestController
+@RequestMapping("/api/courses")
+@CrossOrigin(origins = "*")
 public class CourseController {
 
     @Autowired
-    private CourseSphereService service;
+    private CourseService courseService;
 
-
-
-    @GetMapping("/courses")
-    public String listCourses(Model model) {
-        model.addAttribute("courses", service.getAllCourses());
-        return "courses";
+    @GetMapping
+    public List<Course> getAllCourses() {
+        return courseService.getAllCourses();
     }
 
-    @GetMapping("/courses/add")
-    public String addCourseForm() {
-        return "add-course";
+    @GetMapping("/{id}")
+    public Optional<Course> getCourseById(@PathVariable Long id) {
+        return courseService.getCourseById(id);
     }
 
-    @PostMapping("/courses/add")
-    public String saveCourse(Course course) {
-        service.addCourse(course);
-        return "redirect:/add/success/course";
+    @GetMapping("/search")
+    public List<Course> searchCourses(@RequestParam String category) {
+        return courseService.searchByCategory(category);
+    }
+
+    @PostMapping
+    public Course createCourse(@RequestBody Course course) {
+        return courseService.saveCourse(course);
+    }
+
+    @PutMapping("/{id}")
+    public Course updateCourse(@PathVariable Long id, @RequestBody Course course) {
+        course.setId(id);
+        return courseService.saveCourse(course);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteCourse(@PathVariable Long id) {
+        courseService.deleteCourse(id);
+        return "Course deleted successfully";
     }
 }

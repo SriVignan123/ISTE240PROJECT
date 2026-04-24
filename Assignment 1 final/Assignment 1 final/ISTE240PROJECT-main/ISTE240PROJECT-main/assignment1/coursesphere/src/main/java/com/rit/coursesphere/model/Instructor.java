@@ -1,8 +1,5 @@
 package com.rit.coursesphere.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Instructor {
 
     private Long id;
@@ -11,15 +8,38 @@ public class Instructor {
 
     public Instructor() {}
 
-    public Long getId() { return id; }
+    public Instructor(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
 
-    public String getEmail() { return email; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setEmail(String email) { this.email = email; }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Instructor: " + name;
+    }
 }
